@@ -1,0 +1,5 @@
+<div class="chip-body">
+	<h1>DINNER TIME</h1>
+	<!--<div ng-repeat="meal in meals.data">{{meal.title}}</div>-->
+	<p>{{test}} | {{id}}</p>
+</div>

@@ -1,0 +1,61 @@
+<!--Table Design-->
+<!--index.html-->
+<!--https://thinkster.io/mean-stack-tutorial-->
+<!--http://designrfix.com/design/dashboard-design-->
+<html>
+	<head>
+		<title>Jaden</title>
+
+		<!--Javascript Files-->	
+		<script src="/javascripts/angular.min.js"></script>		
+		<script src="/javascripts/jquery-1.11.3.min.js"></script>
+		<script src="/javascripts/JadenApp.js"></script>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
+		<script src="/javascripts/angular-ui-router.js"></script>
+		<script src="/javascripts/angular-animate.js"></script>
+		<script src="/javascripts/bootstrap.min.js"></script>
+
+		<!--CSS Files-->
+		<link href='/stylesheets/j-main-table.css' rel='stylesheet' type='text/css'>
+		<link href='/stylesheets/bootstrap.css' rel='stylesheet' type='text/css'>
+		<link href='/stylesheets/font-awesome.css' rel='stylesheet' type='text/css'>
+	</head>
+	<body ng-app="Jaden" ng-controller="MainCtrl">
+		<!--Navigation-->
+		<div class="nav-container">
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+			    		<a class="navbar-brand" href="#/">Jaden</a>
+			    	</div>		    	
+			  </div>
+			</nav>
+		</div>
+
+		<!--Body-->
+		<div class="jaden-body">	
+			<!--<ui-view></ui-view>-->
+			<ng-view></ng-view>
+		</div>
+
+		<!--Footer-->
+		<div class="footer-container" ng-class="{'footer-down': footerOn == false , 'footer-up': footerOn == true }">
+			<div class="jaden-footer">
+				<div class="footer-header">
+					<div class="jada-trigger pull-right" ng-click="FooterCtrl();"><i class="fa" ng-class="{'fa-chevron-up': footerOn == false , 'fa-chevron-down': footerOn == true }"></i><span>Jada</span></div>
+				</div>
+				<div class="footer-body">
+					<ul class="chip-list col-sm-3">
+						<li ng-repeat="chip in chips"><a href="#/{{chip.title.replace(' ','')|lowercase}}/{{$index}}"><i class="fa" ng-class="{'fa-circle-o-notch fa-spin': chip.icon == '', '{{chip.icon}}': chip.icon != ''}"></i> {{chip.title}} </a></li>
+					</ul>
+					<div class="jada-interface col-sm-offset-1 col-sm-8"></div>
+				</div>
+			</div>
+		</div>		
+
+		<!--Chips-->
+		<script type="text/ng-template" id="/chips.html"></script>
+		
+	</body>
+</html>
